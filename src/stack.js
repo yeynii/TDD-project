@@ -1,18 +1,26 @@
 class Stack {
   constructor() {
-    this.array = new Array();
+    this.array = [];
+  }
+
+  size() {
+      return this.array.length;
   }
 
   push(item) {
-    this.array[this.array.length] = item;
+    this.array.push(item);
   }
 
   pop() {
-    if (this.array.length == 0)
-      throw new Error("빈 스택에서 pop 할 수 없습니다.");
-    const poped = this.array[0];
-    delete this.array[0];
-    return poped;
+    if (this.array.length === 0)
+      throw new Error("빈 스택입니다.");
+    return this.array.pop();
+  }
+
+  peek() {
+    if (this.array.length === 0)
+      throw new Error("빈 스택입니다.");
+    return this.array[this.size() - 1];
   }
 }
 
